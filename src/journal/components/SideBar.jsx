@@ -1,6 +1,7 @@
-import { Divider, Drawer, Toolbar, Typography } from '@mui/material'
+import { Divider, Drawer, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material'
 
 import { Box } from '@mui/system'
+import { TurnedInNot } from '@mui/icons-material'
 
 export const SideBar = ({ drawerWhit = 240 }) => {
   return (
@@ -14,6 +15,23 @@ export const SideBar = ({ drawerWhit = 240 }) => {
           </Typography>
         </Toolbar>
         <Divider />
+        <List>
+          {
+            ['Enero', 'Febrero', 'Marzo', 'Abril'].map(text => (
+              <ListItem key={ text}>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <TurnedInNot />
+                  </ListItemIcon>
+                  <Grid container>
+                    <ListItemText primary={text} />
+                    <ListItemText secondary='Lorem ' />
+                  </Grid>
+                </ListItemButton>
+              </ListItem>
+            ))
+          }
+        </List>
       </Drawer>
     </Box>
   )
